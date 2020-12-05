@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.3.2.RELEASE'
+        springBootVersion = '2.4.0'
     }
     repositories {
         mavenCentral()
@@ -31,9 +31,9 @@ repositories {
     mavenCentral()
 }
 
-jar {
+/*jar {
     processResources.exclude('application-local.yml', 'application-live.yml')
-}
+}*/
 
 dependencies {
     configurations.all {
@@ -44,7 +44,7 @@ dependencies {
 
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+    //implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework', name: 'spring-context-support'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2'

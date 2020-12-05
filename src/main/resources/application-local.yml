@@ -1,0 +1,12 @@
+server:
+  port: 8085
+  use-forward-headers: true
+
+datasource:
+  hovy:
+    username: hovy_user
+    password: "hovytest"
+
+jwt:
+  secret: "YMZJNVTaK<k5qZHHZr-f}gJ!/3:<,A-;"
+  expiration: 86400000
