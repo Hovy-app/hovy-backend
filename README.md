@@ -20,15 +20,27 @@ Returns:
 ```
 {
   "welcome": "Welcome YARY RIBERO!",
-  "shopId": 1,
+  "shop": {
+    "id": 1,
+    "name": OmnivaFakeShop#1,
+    "address": Fake11,
+    Faketown,
+    11111,
+    "logoUrl": https: //www.omniva.ee/theme/post24/img/logo.png,
+    
+  },
   "services": [
     {
       "index": 0,
-      "name": "Collect package"
+      "name": "Collect parcel"
     },
     {
       "index": 1,
       "name": "Financial services"
+    },
+    {
+      "index": 2,
+      "name": "Send parcel"
     }
   ]
 }
@@ -92,3 +104,9 @@ Requires a JSON body. Example:
 ```
 
 Rate and comment are alternatively optional: if none is set no record will be saved.
+
+## Test Shops by QR code:
+
+aaa: Omniva Fake Shop #1
+bbb: New Pharmacy
+ccc: Retails Store

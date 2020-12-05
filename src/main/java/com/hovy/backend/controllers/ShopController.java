@@ -1,9 +1,9 @@
 package com.hovy.backend.controllers;
 
+import com.hovy.backend.db.entities.Shop;
 import com.hovy.backend.services.MobileIdService;
 import com.hovy.backend.services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,9 +24,9 @@ public class ShopController {
             @PathVariable String phone,
             @PathVariable String qr
     ) {
-        long shopId = shopService.getShopId(qr);
+        Shop shop = shopService.getShop(qr);
 
-        return mobileIdService.challenge(phone, id, shopId);
+        return mobileIdService.challenge(phone, id, shop);
     }
 
     @GetMapping(value = "/enterQueue/{shopId}/{serviceId}")

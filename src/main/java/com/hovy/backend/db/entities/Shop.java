@@ -26,4 +26,10 @@ public class Shop implements Serializable {
     @Column(name = "publicKey")
     private String publicKey;
 
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "logo_url")
+    private String logoUrl;
+
 }
