@@ -5,8 +5,28 @@ import com.hovy.backend.db.repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 @Service
 public class ShopService {
+
+    private Thread deskClerk = new Thread(() -> {
+        while(true) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+            }
+
+            getNext();
+
+            System.out.println("Next person");
+        }
+    });
+
+    @PostConstruct
+    private void init() {
+        deskClerk.start();
+    }
 
     private int current = 1;
 
