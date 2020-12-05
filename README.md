@@ -6,7 +6,7 @@
 
 /scan/{isikukood}/{phone_number}/{qr_content}
 
-Method GET
+Method: GET
 
 Triggers the authentication process. It returns some data provided by the business identified by the content of the QR code.
 The wait might be long.
@@ -40,7 +40,7 @@ Returns:
 
 The parameters come from the previous call (shopId and an index from the list of services)
 
-Method GET
+Method: GET
 
 Example:
 
@@ -61,7 +61,7 @@ Returns:
 
 The parameters come from the original call (shopId and an index from the list of services)
 
-Method GET
+Method: GET
 
 Example:
 
@@ -74,3 +74,21 @@ Returns:
   "current": 1
 }
 ```
+
+### feedback
+
+/feedback
+
+Method: POST
+
+Requires a JSON body. Example:
+
+```
+{
+  "shopId": 1,
+  "rate": 1,
+  "comment": "Not good at all"
+}
+```
+
+Rate and comment are alternatively optional: if none is set no record will be saved.
