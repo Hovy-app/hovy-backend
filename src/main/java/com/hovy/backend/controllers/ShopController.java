@@ -39,4 +39,14 @@ public class ShopController {
 
         return String.format("{\"queueNumber\": %d, \"current\": %d}", queueNumber, current);
     }
+
+    @GetMapping(value = "/next/{shopId}/{serviceId}")
+    public @ResponseBody String next(
+            @PathVariable long shopId,
+            @PathVariable long serviceId
+    ) {
+        int current = shopService.getNext();
+
+        return String.format("{\"current\": %d}", current);
+    }
 }

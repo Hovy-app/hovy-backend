@@ -19,7 +19,7 @@ public class ShopService {
         return current;
     }
 
-    public int next() {
+    public int getNext() {
         current ++;
 
         if (current > 20) {

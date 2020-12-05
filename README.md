@@ -42,9 +42,6 @@ The parameters come from the previous call (shopId and an index from the list of
 
 Method GET
 
-Triggers the authentication process. It returns some data provided by the business identified by the content of the QR code.
-The wait might be long.
-
 Example:
 
 http://145.14.28.154:8085/enterQueue/1/0
@@ -54,6 +51,26 @@ Returns:
 ```
 {
   "queueNumber": 3,
+  "current": 1
+}
+```
+
+### next
+
+/next/{shopId}/{serviceId}
+
+The parameters come from the original call (shopId and an index from the list of services)
+
+Method GET
+
+Example:
+
+http://145.14.28.154:8085/next/1/0
+
+Returns:
+
+```
+{
   "current": 1
 }
 ```
