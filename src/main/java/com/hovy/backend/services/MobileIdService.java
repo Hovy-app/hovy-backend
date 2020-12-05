@@ -9,9 +9,6 @@ import javax.annotation.PostConstruct;
 import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import static com.hovy.backend.utils.TestData.*;
 import static java.util.Arrays.asList;
@@ -41,7 +38,7 @@ public class MobileIdService {
                 .build();
     }
 
-    public String challenge(String phoneNumber, String personalIdNumber) {
+    public String challenge(String phoneNumber, String personalIdNumber, long shopId) {
         MidAuthenticationHashToSign authenticationHash = MidAuthenticationHashToSign.generateRandomHashOfDefaultType();
         String verificationCode = authenticationHash.calculateVerificationCode();
 
@@ -72,11 +69,12 @@ public class MobileIdService {
 
         return getServices(
                 String.format("Welcome %s %s!", authenticationIdentity.getGivenName(), authenticationIdentity.getSurName()),
+                shopId,
                 new String[] {"Collect package", "Financial services"}
         );
     }
 
-    public String getServices(String personName, String [] services) {
+    public String getServices(String personName, long shopId, String [] services) {
         String[] jsonServices = new String [services.length];
 
         for (int i = 0; i < services.length; i++) {
@@ -84,10 +82,12 @@ public class MobileIdService {
         }
 
         return String.format("{" +
-                "\"welcome\":\"%s\"" +
+                "\"welcome\":\"%s\"," +
+                "\"shopId\": %d," +
                 "\"services\":[%s]" +
             "}",
             personName,
+            shopId,
             String.join(",", jsonServices));
     }
 }

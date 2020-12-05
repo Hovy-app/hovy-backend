@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = {"com.hovy.backend.com.hovy.backend.db.repositories"},
+        basePackages = {"com.hovy.backend.db.repositories"},
         entityManagerFactoryRef = "entityManagerFactory",
         transactionManagerRef = "transactionManager"
 )
@@ -39,7 +39,7 @@ public class DbConfig {
     ) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.hovy.backend.com.hovy.backend.db")
+                .packages("com.hovy.backend.db")
                 .persistenceUnit("hovy")
                 .build();
     }
