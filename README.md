@@ -98,14 +98,15 @@ Returns:
 
 ```
 {
-  "queueNumber": 3,
-  "current": 1
+  "queueNumber": 7,
+  "current": 8,
+  "peopleLeft": 19
 }
 ```
 
 ### next
 
-/next/{shopId}/{serviceId}
+/next/{shopId}/{serviceId}/{myNumber}
 
 The parameters come from the original call (shopId and an index from the list of services)
 
@@ -113,13 +114,15 @@ Method: GET
 
 Example:
 
-http://145.14.28.154:8085/next/1/0
+http://145.14.28.154:8085/next/1/0/15
 
 Returns:
 
 ```
 {
-  "current": 1
+  "queueNumber": 7,
+  "current": 8,
+  "peopleLeft": 19
 }
 ```
 
@@ -150,5 +153,7 @@ Allowed reason types:
 ## Test Shops by QR code:
 
 aaa: Omniva Fake Shop #1
+
 bbb: New Pharmacy
+
 ccc: Retails Store

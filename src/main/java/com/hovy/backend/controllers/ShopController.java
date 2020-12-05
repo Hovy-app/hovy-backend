@@ -37,17 +37,56 @@ public class ShopController {
         int queueNumber = shopService.enterQueue();
         int current = shopService.getCurrent();
 
-        return String.format("{\"queueNumber\": %d, \"current\": %d}", queueNumber, current);
+        return String.format(
+                "{" +
+                        "\"queueNumber\": %d," +
+                        " \"current\": %d," +
+                        " \"peopleLeft\": %d" +
+                "}",
+                queueNumber,
+                current,
+                (20 - current + queueNumber) % 20
+        );
     }
 
-    @GetMapping(value = "/next/{shopId}/{serviceId}")
+    @GetMapping(value = "/queueStatus/{shopId}/{serviceId}/{myNumber}")
+    public @ResponseBody String queueStatus(
+            @PathVariable long shopId,
+            @PathVariable long serviceId,
+            @PathVariable int myNumber
+    ) {
+        int current = shopService.getCurrent();
+
+        return String.format(
+                "{" +
+                        "\"queueNumber\": %d," +
+                        " \"current\": %d," +
+                        " \"peopleLeft\": %d" +
+                        "}",
+                myNumber,
+                current,
+                (20 - current + myNumber) % 20
+        );
+    }
+
+    @GetMapping(value = "/next/{shopId}/{serviceId}/{myNumber}")
     public @ResponseBody String next(
             @PathVariable long shopId,
-            @PathVariable long serviceId
+            @PathVariable long serviceId,
+            @PathVariable int myNumber
     ) {
         int current = shopService.getNext();
 
-        return String.format("{\"current\": %d}", current);
+        return String.format(
+                "{" +
+                        "\"queueNumber\": %d," +
+                        " \"current\": %d," +
+                        " \"peopleLeft\": %d" +
+                        "}",
+                myNumber,
+                current,
+                (20 - current + myNumber) % 20
+        );
     }
 
     @GetMapping(value = "/shopInfo/{qr}")
