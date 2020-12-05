@@ -16,6 +16,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Feedback implements Serializable {
 
+    public enum ReasonType {
+        LONG_QUEUE,
+        LONG_WAIT,
+        WRONG_PLACE,
+        PERSONAL
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,5 +35,9 @@ public class Feedback implements Serializable {
 
     @Column(name = "comment")
     private String comment;
+
+    @Column(name = "reason_type")
+    @Enumerated(EnumType.ORDINAL)
+    private ReasonType reasonType;
 
 }

@@ -12,8 +12,8 @@ public class FeedbackService {
     @Autowired
     private FeedbackRepository feedbackRepository;
 
-    public void addFeedback(long shopId, Short rate, String comment) {
-        if (rate == null && StringUtils.isBlank(comment)) {
+    public void addFeedback(long shopId, Short rate, String comment, Feedback.ReasonType reasonType) {
+        if (rate == null && StringUtils.isBlank(comment) && reasonType == null) {
             return;
         }
 
@@ -22,6 +22,7 @@ public class FeedbackService {
                         .shopId(shopId)
                         .rate(rate)
                         .comment(comment)
+                        .reasonType(reasonType)
                         .build()
         );
     }

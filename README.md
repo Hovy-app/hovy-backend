@@ -22,12 +22,9 @@ Returns:
   "welcome": "Welcome YARY RIBERO!",
   "shop": {
     "id": 1,
-    "name": OmnivaFakeShop#1,
-    "address": Fake11,
-    Faketown,
-    11111,
-    "logoUrl": https: //www.omniva.ee/theme/post24/img/logo.png,
-    
+    "name": "Omniva Fake Shop #1",
+    "address": "Fake 11, Faketown, 11111",
+    "logoUrl": "https://www.omniva.ee/theme/post24/img/logo.png"
   },
   "services": [
     {
@@ -66,8 +63,7 @@ Returns:
     "id": 1,
     "name": "Omniva Fake Shop #1",
     "address": "Fake 11, Faketown, 11111",
-    "logoUrl": "https://www.omniva.ee/theme/post24/img/logo.png",
-    
+    "logoUrl": "https://www.omniva.ee/theme/post24/img/logo.png"
   },
   "services": [
     {
@@ -139,11 +135,17 @@ Requires a JSON body. Example:
 {
   "shopId": 1,
   "rate": 1,
-  "comment": "Not good at all"
+  "comment": "Not good at all",
+  "reasonType": "PERSONAL"
 }
 ```
 
-Rate and comment are alternatively optional: if none is set no record will be saved.
+Allowed reason types:
+
+        LONG_QUEUE,
+        LONG_WAIT,
+        WRONG_PLACE,
+        PERSONAL
 
 ## Test Shops by QR code:
 

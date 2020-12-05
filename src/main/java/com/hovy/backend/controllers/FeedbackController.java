@@ -19,7 +19,7 @@ public class FeedbackController {
             @RequestBody FeedbackDto feedback
     ) {
         try {
-            feedbackService.addFeedback(feedback.getShopId(), feedback.getRate(), feedback.getComment());
+            feedbackService.addFeedback(feedback.getShopId(), feedback.getRate(), feedback.getComment(), feedback.getReasonType());
         } catch (Exception e) {
             return String.format("{\"status\": \"Error\", \"message\": \"%s\"}", e.getLocalizedMessage());
         }
