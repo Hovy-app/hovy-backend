@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "shops")
+@Table(name = "feedbacks")
 @Data
 @Builder
 @AllArgsConstructor
