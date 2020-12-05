@@ -46,6 +46,46 @@ Returns:
 }
 ```
 
+### Shop Info
+
+/shopInfo/{qr_content}
+
+Method: GET
+
+It returns the data of shop associated to the QR code
+
+Example:
+
+http://145.14.28.154:8085/shopInfo/aaa
+
+Returns:
+
+```
+{
+  "shop": {
+    "id": 1,
+    "name": "Omniva Fake Shop #1",
+    "address": "Fake 11, Faketown, 11111",
+    "logoUrl": "https://www.omniva.ee/theme/post24/img/logo.png",
+    
+  },
+  "services": [
+    {
+      "index": 0,
+      "name": "Collect parcel"
+    },
+    {
+      "index": 1,
+      "name": "Financial services"
+    },
+    {
+      "index": 2,
+      "name": "Send parcel"
+    }
+  ]
+}
+```
+
 ### enterQueue
 
 /enterQueue/{shopId}/{serviceId}

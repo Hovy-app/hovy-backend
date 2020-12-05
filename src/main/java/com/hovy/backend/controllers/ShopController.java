@@ -49,4 +49,13 @@ public class ShopController {
 
         return String.format("{\"current\": %d}", current);
     }
+
+    @GetMapping(value = "/shopInfo/{qr}")
+    public @ResponseBody String shopInfo(
+            @PathVariable String qr
+    ){
+        Shop shop = shopService.getShop(qr);
+
+        return mobileIdService.getServices(shop);
+    }
 }

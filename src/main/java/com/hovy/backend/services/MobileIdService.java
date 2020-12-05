@@ -94,7 +94,7 @@ public class MobileIdService {
                         "\"id\": %d," +
                         "\"name\": \"%s\"," +
                         "\"address\": \"%s\"," +
-                        "\"logoUrl\": \"%s\"," +
+                        "\"logoUrl\": \"%s\"" +
                 "}," +
                 "\"services\":[%s]" +
             "}",
@@ -104,5 +104,30 @@ public class MobileIdService {
             shop.getAddress(),
             shop.getLogoUrl(),
             String.join(",", jsonServices));
+    }
+
+    public String getServices(Shop shop) {
+        String [] services = shopService.getServices(shop.getId());
+
+        String[] jsonServices = new String [services.length];
+
+        for (int i = 0; i < services.length; i++) {
+            jsonServices [i] = String.format("{\"index\": %d, \"name\": \"%s\"}", i, services[i]);
+        }
+
+        return String.format("{" +
+                    "\"shop\": {" +
+                        "\"id\": %d," +
+                        "\"name\": \"%s\"," +
+                        "\"address\": \"%s\"," +
+                        "\"logoUrl\": \"%s\"" +
+                    "}," +
+                    "\"services\":[%s]" +
+                "}",
+                shop.getId(),
+                shop.getName(),
+                shop.getAddress(),
+                shop.getLogoUrl(),
+                String.join(",", jsonServices));
     }
 }
