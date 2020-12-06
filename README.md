@@ -157,3 +157,7 @@ aaa: Omniva Fake Shop #1
 bbb: New Pharmacy
 
 ccc: Retails Store
+
+## How to test with your phone
+
+Register your phone number certificates at this site: https://demo.sk.ee/MIDCertsReg/, taking both steps (1 and 2). This allows the demo environment to be accessed by your phone.
